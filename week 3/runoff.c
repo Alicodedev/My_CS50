@@ -127,6 +127,17 @@ int main(int argc, string argv[])
 // Record preference if vote is valid
 bool vote(int voter, int rank, string name)
 {
+    for (int i = 0; i < candidate_count; i++){ // first loop for i'th voters loop variable which takes in total voters pertcipating 
+		
+        for (int j = 0; j <= rank; j++){ // second loop for j'th rank loop variable which position greatest to lowest preference
+			
+            if (strcmp(name,candidates[i].name) == 0){// looking for name
+                preferences[i][j]; // sorting each candidates rank(j) based on voters(i) preferences 
+
+            }
+		}
+
+}
     // TODO
     return false;
 }
