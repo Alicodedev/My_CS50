@@ -66,6 +66,21 @@ int main(int argc, string argv[])
 // Update vote totals given a new vote
 bool vote(string name)
 {
+    int max_vote = candidates[0].votes;
+
+    for (int i = 0; i < candidate_count; i++){
+        if (max_vote < candidates[i].votes){
+            max_vote = candidates[i].votes;
+        }
+
+    }
+
+    for (int i = 0; i < candidate_count; i++){
+        if(candidates[i].votes == max_vote){
+            printf("%s\n",candidates[i].name);
+        }
+
+    }
 
 
 
