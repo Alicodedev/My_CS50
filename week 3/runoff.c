@@ -136,10 +136,10 @@ bool vote(int voter, int rank, string name)
             }
 		}
 
-}
     // TODO
     return false;
 }
+
 
 // Tabulate votes for non-eliminated candidates
 void tabulate(void)
@@ -188,6 +188,22 @@ int find_min(void)
 // Return true if the election is tied between all candidates, false otherwise
 bool is_tie(int min)
 {
+    int eliminate = 0;
+    int counter = 0;
+    for(int i = 0; i < candidate_count; i++){
+        if (!candidates[i].eliminated){
+            eliminate++;
+        }
+
+        if(candidates[i].votes == min){
+            counter++;
+        }
+
+    }
+    
+    if (eliminate == counter){
+            return true;
+        }
     // TODO
     return false;
 }
