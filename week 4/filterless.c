@@ -62,7 +62,59 @@ void reflect(int height, int width, RGBTRIPLE image[height][width])
 // Blur image
 void blur(int height, int width, RGBTRIPLE image[height][width])
 {
+    RGBTRIPLE temp[height][width];
+    for(int x = 0; x < height; x++)
+    {
+        for(int y = 0; y < width; y++)
+        {
+            temp[x][y] = image[x][y];
+
+        }
+    }
+
+     for(int row = 0; row < height; row++)
+    {
+        for(int col = 0; col < width; col++)
+        {
+           int sum_Red, sum_Blue, sum_Green;
+           sum_Red = sum_Blue = sum_Green = 0;
+           float counter = 0.00;
+
+            for(int x = -1; x < 2; x++)
+            {
+                for(int y = -1; y < 2; y++)
+                {
+                    int curr_x = row + x;
+                    int curr_y = col + y;
+
+                    if (curr_x < 0 || curr_x > (height + 1) || curr_y < 0 || curr_y > (width - 1) )
+                    {
+                        continue;
+                    }
+
+                    sum_Red += image[curr_x][curr_y]. rgbtRed;
+                    sum_Blue += image[curr_x][curr_y].rgbtBlue;
+                    sum_Green += image[curr_x][curr_y].rgbtGreen;
+
+                    counter++;
+
+                }
+
+                temp[row][col].rgbtRed = round(sum_Red / counter);
+                temp[row][col].rgbtBlue = round(sum_Blue / counter);
+                temp[row][col].rgbtGreen = round(sum_Green / counter);
+            }
+        }
+    }
+
+    for (int x = 0; x < height; x++)
+    {
+        for(int y = 0; y < width; y++)
+        {
+            image[x][y].rgbtRed = temp[x][y].rgbtRed;
+            image[x][y].rgbtGreen = temp[x][y].rgbtGreen;
+            image[x][y].rgbtBlue= temp[x][y].rgbtBlue;
+        }
+    }
     return;
 }
-
-
