@@ -50,8 +50,8 @@ person *create_family(int generations)
         person *parent1 = create_family(generations - 1);
 
         // TODO: Set parent pointers for current person
-        p -> *parent[0] = parent0; // assinging current person to each parent from parent pointer array in person struct 
-        p -> *parent[1] = parent1;
+        p->parent[0] = parent0; // assinging current person to each parent from parent pointer array in person struct 
+        p->parent[1] = parent1;
 
         // TODO: Randomly assign current person's alleles based on the alleles of their parents
         p->alleles[0] = p->parent[0]->alleles[rand() % 2]; // accessing each parent's alleles and randomly selecting one
@@ -63,6 +63,7 @@ person *create_family(int generations)
     else
     {
         // TODO: Set parent pointers to NULL
+        
 
         // TODO: Randomly assign alleles
 
