@@ -24,7 +24,17 @@ unsigned int word_count , high_value;
 
 // Returns true if word is in dictionary, else false
 bool check(const char *word)
-{
+{   
+    node *cursor = table[hash(word)];
+  
+    while(cursor != NULL)
+    {
+        if (strcasecmp(word, cursor->word) == 0) // checks if words are equal 
+        {
+            return true;
+        }
+        cursor = cursor -> next;// if not cursor traverses to the next node in the linked lists of the hash table
+    }
     // TODO
     return false;
 }
