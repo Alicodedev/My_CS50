@@ -23,6 +23,13 @@ def main():
 
     counts = {}
     # TODO: Simulate N tournaments and keep track of win counts
+    for i in range(N): # simulate tournament 1000 times
+        winner = simulate_tournament(teams)  #stored functions return value of team which has wonn
+        
+        if winner in counts:
+            counts[winner] += 1
+        else:
+            counts[winner] = 1
     
     """keys= team name
 
