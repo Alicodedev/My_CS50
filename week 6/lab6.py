@@ -12,11 +12,25 @@ def main():
     if len(sys.argv) != 2:
         sys.exit("Usage: python tournament.py FILENAME")
 
-    
+    teams = []
+    with open(sys.argv[1], 'r') as f:
+        reader = csv.DictReader(f)
+        for row in reader:
+            row["rating"] = int(row["rating"])
+            teams.append(row)
+        return teams
     # TODO: Read teams into memory from file
 
     counts = {}
     # TODO: Simulate N tournaments and keep track of win counts
+    
+    """keys= team name
+
+    value = amouunt of wins 
+
+    if key == function(key) // if the key name is equal to the output key from function simulat return team name
+	value++ // add 1 to each win 
+    """
 
     # Print each team's chances of winning, according to simulation
     for team in sorted(counts, key=lambda team: counts[team], reverse=True):
