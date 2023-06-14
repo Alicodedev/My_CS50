@@ -30,14 +30,7 @@ def main():
             counts[winner] += 1
         else:
             counts[winner] = 1
-    
-    """keys= team name
 
-    value = amouunt of wins 
-
-    if key == function(key) // if the key name is equal to the output key from function simulat return team name
-	value++ // add 1 to each win 
-    """
 
     # Print each team's chances of winning, according to simulation
     for team in sorted(counts, key=lambda team: counts[team], reverse=True):
