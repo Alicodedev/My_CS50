@@ -15,6 +15,9 @@ def main():
             db.append(row)
         return db
     # TODO: Read database file into a variable
+    with open(sys.argv[2], 'r') as f:
+        dna_seq = f.read()
+        
     
     
     # TODO: Read DNA sequence file into a variable
