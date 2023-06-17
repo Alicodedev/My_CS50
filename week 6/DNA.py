@@ -8,7 +8,12 @@ def main():
         sys.exit("Usage: python dna.py data.csv sequence.txt")
     # TODO: Check for command-line usage
 
-    
+    db= []
+    with open(sys.argv[1], 'r') as f:
+        reader = csv.DictReader(f)
+        for row in reader:
+            db.append(row)
+        return db
     # TODO: Read database file into a variable
     
     
