@@ -15,18 +15,34 @@ def main():
             db.append(row)
         return db
     # TODO: Read database file into a variable
+    
     with open(sys.argv[2], 'r') as f:
         dna_seq = f.read()
-        
-    
-    
     # TODO: Read DNA sequence file into a variable
 
     # TODO: Find longest match of each STR in DNA sequence
+    subseq = list(db[0].keys())[1:]
+    l
 
+    results = {}
+    for i in range(len(subseq)):
+        final = longest_match(dna_seq,subseq)
+        
+        if final in results:
+            results[final] += 1
+        else:
+            results[final] = 1    
     # TODO: Check database for matching profiles
+    for person in db:
+        match = 0
+        for i in subseq:
+            if int(person[i]) == result[i]:
+                match += 1
 
-    return
+        if match == len(subseq):
+            print(person["name"])
+            return
+    print("No match")
 
 
 def longest_match(sequence, subsequence):
